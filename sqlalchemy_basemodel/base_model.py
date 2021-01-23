@@ -25,6 +25,7 @@ def get_save_method(session):
         session.add(self)
         self.__commit(*args, **kwargs)
         self.after_save(*args, **kwargs)
+        return self
     return save
 
 
@@ -34,6 +35,7 @@ def get_delete_method(session):
         session.delete(self)
         self.__commit(*args, **kwargs)
         self.after_delete(*args, **kwargs)
+        del self
     return delete
 
 
@@ -43,6 +45,7 @@ def get_update_method():
         self.updated_at = datetime.now()
         self.__commit(*args, **kwargs)
         self.after_update(*args, **kwargs)
+        return self
     return update
 
 
