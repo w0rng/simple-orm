@@ -10,3 +10,6 @@ class SQLAlchemy:
         self.base = declarative_base()
         self.Session = sessionmaker(bind=self.engine)
         self.Model = create_base_model_class(self.base, self.Session())
+
+    def create_all(self):
+        self.base.metadata.create_all(self.engine)
