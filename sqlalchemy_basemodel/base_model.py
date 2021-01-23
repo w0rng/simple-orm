@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, DateTime
 from datetime import datetime
-from utils import classproperty
+from .utils import classproperty
 
 
 def do_nothing(self, *args, **kwargs):
